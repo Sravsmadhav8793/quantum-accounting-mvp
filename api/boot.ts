@@ -6,6 +6,7 @@ import { appRouter } from "./router";
 import { createContext } from "./context";
 import { env } from "./lib/env";
 import { login } from "./local-auth";
+import { signInOptions, googleLogin, passkeyList, passkeyRegisterOptions, passkeyRegisterVerify, passkeyLoginOptions, passkeyLoginVerify, passkeyRemove } from "./modern-auth";
 import { log } from "./lib/logger";
 import { handleClientLog } from "./lib/clientlog";
 import { REQUEST_ID_HEADER, runWithRequestId } from "./lib/requestcontext";
@@ -59,6 +60,14 @@ app.use("*", async (c, next) => {
 // /api/log keeps its own 64KB caps in lib/clientlog.ts, so it needs no middleware.
 app.use("/api/trpc/*", bodyLimit({ maxSize: 50 * 1024 * 1024 }));
 app.post("/api/login", bodyLimit({ maxSize: 4096 }), login);
+app.get("/api/signin/options", signInOptions);
+app.post("/api/signin/google", bodyLimit({ maxSize: 8192 }), googleLogin);
+app.get("/api/passkey/list", passkeyList);
+app.post("/api/passkey/register/options", passkeyRegisterOptions);
+app.post("/api/passkey/register/verify", bodyLimit({ maxSize: 65536 }), passkeyRegisterVerify);
+app.post("/api/passkey/login/options", passkeyLoginOptions);
+app.post("/api/passkey/login/verify", bodyLimit({ maxSize: 65536 }), passkeyLoginVerify);
+app.post("/api/passkey/remove", bodyLimit({ maxSize: 4096 }), passkeyRemove);
 app.use("/api/trpc/*", async (c) => {
   return fetchRequestHandler({
     endpoint: "/api/trpc",

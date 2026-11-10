@@ -10,6 +10,7 @@ import Invoices from './pages/Invoices'
 import Expenses from './pages/Expenses'
 import Reports from './pages/Reports'
 import SettingsPage from './pages/SettingsPage'
+import PasskeySettings from './pages/PasskeySettings'
 
 function guarded(node: React.ReactNode) {
   return <AppLayout>{node}</AppLayout>
@@ -28,6 +29,7 @@ export default function App() {
       <Route path="/expenses" element={guarded(<Expenses />)} />
       <Route path="/reports" element={guarded(<Reports />)} />
       <Route path="/settings" element={guarded(<SettingsPage />)} />
+      <Route path="/security" element={guarded(<PasskeySettings />)} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   )

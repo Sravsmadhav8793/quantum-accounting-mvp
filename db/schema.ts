@@ -29,6 +29,15 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
+export const passkeyCredentials = mysqlTable("passkey_credentials", {
+  id: varchar("id", { length: 255 }).primaryKey(),
+  publicKey: text("public_key").notNull(),
+  counter: bigint("counter", { mode: "number", unsigned: true }).default(0).notNull(),
+  transports: text("transports").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  lastUsedAt: timestamp("last_used_at"),
+});
+
 /** Per-user organisation settings (single-org MVP). userId is the PK. */
 export const settings = mysqlTable("settings", {
   userId: bigint("userId", { mode: "number", unsigned: true }).primaryKey(),
