@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.sravantix.quantum",
+      "sha256_cert_fingerprints": [
+        "10:D1:E1:D1:0A:C9:1F:C2:A2:DA:C7:B1:FA:5D:65:96:9E:1D:4E:AF:32:96:CD:13:07:47:CD:5A:66:72:CB:1E"
+      ]
+    }
+  }
+]

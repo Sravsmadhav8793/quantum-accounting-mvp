@@ -1,0 +1,30 @@
+{
+  "packageId": "com.sravantix.quantum",
+  "host": "quantum.sravantix.com",
+  "name": "Quantum Accounting",
+  "launcherName": "Quantum",
+  "display": "standalone",
+  "themeColor": "#0a0a0a",
+  "navigationColor": "#0a0a0a",
+  "backgroundColor": "#0a0a0a",
+  "enableNotifications": false,
+  "startUrl": "/dashboard",
+  "iconUrl": "https://quantum.sravantix.com/icons/icon-512.png",
+  "maskableIconUrl": "https://quantum.sravantix.com/icons/icon-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "../../release-secrets/android-upload.jks",
+    "alias": "upload"
+  },
+  "appVersionCode": 1,
+  "appVersion": "1.0.0",
+  "shortcuts": [],
+  "generatorApp": "Sravantix release tooling / Bubblewrap 1.27.0",
+  "webManifestUrl": "https://quantum.sravantix.com/manifest.webmanifest",
+  "fallbackType": "customtabs",
+  "enableSiteSettingsShortcut": true,
+  "minSdkVersion": 24,
+  "orientation": "default",
+  "fingerprints": [],
+  "additionalTrustedOrigins": []
+}

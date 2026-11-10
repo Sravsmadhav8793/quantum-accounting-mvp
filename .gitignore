@@ -7,3 +7,7 @@ coverage/
 *.local
 *.log
 *.tsbuildinfo
+mobile/android/.gradle/
+mobile/android/app/build/
+mobile/android/build/
+release-secrets/
