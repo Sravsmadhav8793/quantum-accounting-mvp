@@ -1,6 +1,6 @@
 /**
- * AI layer — every model call goes through the platform gateway via the
- * preinstalled AI SDK. Errors are classified with ai-client.ts so routers can
+ * AI layer — model calls use a configured OpenAI-compatible provider.
+ * Errors are classified with ai-client.ts so routers can
  * return typed, user-facing degradation messages.
  */
 import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
@@ -18,9 +18,9 @@ function readEnv(key: string): string {
 
 function provider() {
   return createOpenAICompatible({
-    name: "kimi-gw",
-    baseURL: readEnv("KIMI_AGENTGW_BASE_URL"),
-    apiKey: readEnv("KIMI_AGENTGW_API_KEY"),
+    name: "private-ai",
+    baseURL: readEnv("AI_BASE_URL"),
+    apiKey: readEnv("AI_API_KEY"),
     supportsStructuredOutputs: true,
   });
 }
